@@ -142,10 +142,7 @@ while running:
         ball_y = (screen_height/2)
         ball_speed_x *= rd.choice( [-1, 1] )
              
-            
-            
-            
-            
+                
     # Drawing area
     
     # Draw the player 1 on the left
@@ -160,6 +157,9 @@ while running:
     # Draw the center line
     pygame.draw.aaline(screen, line_color, (screen_width/2, 0), (screen_width/2, screen_height))
     
+    # Collitions
+    if ball.colliderect(player_1) or ball.colliderect(player_2):
+        ball_speed_x *= -1
     
     # Update the window
     pygame.display.flip()
