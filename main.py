@@ -8,6 +8,7 @@ pygame.init()
 bg_color = (0, 255, 0)
 players_color = (66, 51, 255)
 ball_color = (255, 87, 51)
+line_color = (255, 255, 255)
 
 # Define dimensions of the window
 screen_width = 800
@@ -69,5 +70,10 @@ while running:
     
     # Draw the ball
     ball = pygame.draw.circle(screen, ball_color, (ball_x, ball_y), ball_radius)
+    
+    # Draw the center line
+    pygame.draw.aaline(screen, line_color, (screen_width/2, 0), (screen_width/2, screen_height))
+    
+    
     # Update the window
     pygame.display.flip()
