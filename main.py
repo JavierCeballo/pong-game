@@ -58,6 +58,16 @@ while running:
         # Check for QUIT event
         if event.type == pygame.QUIT:
             running = False
+            
+    # Drawing area
     
+    # Draw the player 1 on the left
+    player_1 = pygame.draw.rect(screen, players_color, (player_1_x, player_1_y, players_width, players_height))
+    
+    # Draw the player 2 on the right
+    player_2 = pygame.draw.rect(screen, players_color, (player_2_x, player_2_y, players_width, players_height))
+    
+    # Draw the ball
+    ball = pygame.draw.circle(screen, ball_color, (ball_x, ball_y), ball_radius)
     # Update the window
     pygame.display.flip()
