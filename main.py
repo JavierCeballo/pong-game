@@ -102,11 +102,26 @@ while running:
             
     
     
-    # Player movement
+    # Players movement
     player_1_y += player_1_y_speed
     player_2_y += player_2_y_speed
             
-            
+    # Players boundaries
+    
+    # Player 1
+    if player_1_y <= 0:
+        player_1_y = 0
+    
+    elif player_1_y >= screen_height - players_height:
+        player_1_y = screen_height - players_height
+        
+    # Player 2
+    if player_2_y <= 0:
+        player_2_y = 0
+    
+    elif player_2_y >= screen_height - players_height:
+        player_2_y = screen_height - players_height
+             
             
             
             
