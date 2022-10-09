@@ -1,4 +1,5 @@
 # Import libraries
+from curses import KEY_DOWN
 import pygame
 
 # Initialize pygame
@@ -22,10 +23,12 @@ players_height = 90
 # Define player 1 coordinates
 player_1_x = 50
 player_1_y = 300 - (players_height/2)
+player_1_y_speed = 0
 
 # Define player 2 coordinates
 player_2_x = 750 - players_width
 player_2_y = player_1_y
+player_2_y_speed = 0
 
 # Define ball coordinates
 ball_x = 400
@@ -59,6 +62,54 @@ while running:
         # Check for QUIT event
         if event.type == pygame.QUIT:
             running = False
+            
+        # Players key controls
+        
+        # Cheks for KEYDOWN event
+        if event.type == pygame.KEYDOWN:
+            
+            # Player 1
+            if event.key == pygame.K_w:
+                player_1_y_speed = -1
+                
+            if event.key == pygame.K_s:
+                player_1_y_speed = 1
+                
+            # Player 2
+            if event.key == pygame.K_UP:
+                player_2_y_speed = -1
+                
+            if event.key == pygame.K_DOWN:
+                player_2_y_speed = 1
+                
+                
+        # Cheks for KEYUP event       
+        if event.type == pygame.KEYUP:
+            
+            # Player 1
+            if event.key == pygame.K_w:
+                player_1_y_speed = 0
+            
+            if event.key == pygame.K_s:
+                player_1_y_speed = 0
+                
+            # Player 2
+            if event.key == pygame.K_UP:
+                player_2_y_speed = 0
+                
+            if event.key == pygame.K_DOWN:
+                player_2_y_speed = 0
+            
+    
+    
+    # Player movement
+    player_1_y += player_1_y_speed
+    player_2_y += player_2_y_speed
+            
+            
+            
+            
+            
             
     # Drawing area
     
