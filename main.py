@@ -4,13 +4,28 @@ import pygame
 # Initialize pygame
 pygame.init()
 
-# Colors: bacground
+# Colors: background
 bg_color = (0, 255, 0)
+players_color = (66, 51, 255)
+ball_color = (255, 87, 51)
 
-# Define the dimensions of the window
+# Define dimensions of the window
 screen_width = 800
 screen_height = 600
 size = (screen_width, screen_height)
+
+# Define dimentions of the players
+players_width = 15
+players_height = 90
+
+# Define coordinates player 1
+player_1_x = 50
+player_1_y = 300 - (players_height/2)
+
+# Define coordinates player 2
+player_2_x = 750 - players_width
+player_2_y = player_1_y
+
 
 # Display the window
 screen = pygame.display.set_mode( size )
