@@ -1,6 +1,7 @@
 # Import libraries
 from curses import KEY_DOWN
 import pygame
+import random as rd
 
 # Initialize pygame
 pygame.init()
@@ -34,6 +35,9 @@ player_2_y_speed = 0
 ball_x = 400
 ball_y = 300
 ball_radius = 20
+
+ball_speed_x = 0.1
+ball_speed_y = 0.1
 
 
 # Display the window
@@ -121,6 +125,22 @@ while running:
     
     elif player_2_y >= screen_height - players_height:
         player_2_y = screen_height - players_height
+    
+    
+    # Ball movement
+    ball_x += ball_speed_x
+    ball_y += ball_speed_y
+    
+    # Ball boundaries: top or buttom
+    if ball_y > (screen_height - ball_radius) or ball_y < ball_radius:
+        ball_speed_y *= -1
+        
+    # Ball boundaries: right or left
+    if (ball_x > screen_width) or (ball_x < 0):
+        
+        ball_x = (screen_width/2)
+        ball_y = (screen_height/2)
+        ball_speed_x *= rd.choice( [-1, 1] )
              
             
             
