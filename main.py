@@ -18,13 +18,18 @@ size = (screen_width, screen_height)
 players_width = 15
 players_height = 90
 
-# Define coordinates player 1
+# Define player 1 coordinates
 player_1_x = 50
 player_1_y = 300 - (players_height/2)
 
-# Define coordinates player 2
+# Define player 2 coordinates
 player_2_x = 750 - players_width
 player_2_y = player_1_y
+
+# Define ball coordinates
+ball_x = 400
+ball_y = 300
+ball_radius = 20
 
 
 # Display the window
