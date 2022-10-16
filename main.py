@@ -159,8 +159,20 @@ while running:
     if ball_y > (screen_height - ball_radius) or ball_y < ball_radius:
         ball_speed_y *= -1
         
-    # Ball boundaries: right or left
-    if (ball_x > screen_width) or (ball_x < 0):
+    # Ball boundaries (right or left) and score update
+    if (ball_x > screen_width):
+        
+        # Score update of player 1
+        player_1_score += 1
+        
+        ball_x = (screen_width/2)
+        ball_y = (screen_height/2)
+        ball_speed_x *= rd.choice( [-1, 1] )
+        
+    elif (ball_x < 0):
+        
+        # Score update of player 2
+        player_2_score += 1
         
         ball_x = (screen_width/2)
         ball_y = (screen_height/2)
