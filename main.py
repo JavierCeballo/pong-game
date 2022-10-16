@@ -57,14 +57,23 @@ player_2_score = 0
 # Score font
 score_font = pygame.font.Font("quantifier-font.ttf", 32)
 
-# Score position in the screen
+# Score position in the screen - Player 1
 player_1_score_x = 10
 player_1_score_y = 10
 
+# Score position in the screen - Player 2
+player_2_score_x = screen_width - 165
+player_2_score_y = 10
+
 # Player 1 score function
 def show_score_1(x, y):
-    score1 = score_font.render("Player One: " + str( player_1_score), True, (0, 0, 0))
+    score1 = score_font.render("Player one: " + str( player_1_score), True, (0, 0, 0))
     screen.blit( score1, (x, y))
+    
+# Player 2 score function
+def show_score_2(x, y):
+    score2 = score_font.render("Player two: " + str( player_2_score), True, (0, 0, 0))
+    screen.blit( score2, (x, y))
 
 # Variable that to keep our game loop running
 running = True
@@ -180,6 +189,7 @@ while running:
         
     # Call the show_score1 function
     show_score_1(player_1_score_x, player_1_score_y)
+    show_score_2(player_2_score_x, player_2_score_y)
     
     # Update the window
     pygame.display.flip()
