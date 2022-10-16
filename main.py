@@ -50,6 +50,21 @@ pygame.display.set_icon( icon )
 # Title
 pygame.display.set_caption("Pong Game")
 
+# Score variables
+player_1_score = 0
+player_2_score = 0
+
+# Score font
+score_font = pygame.font.Font("quantifier-font.ttf", 32)
+
+# Score position in the screen
+player_1_score_x = 10
+player_1_score_y = 10
+
+# Player 1 score function
+def show_score_1(x, y):
+    score1 = score_font.render("Player One: " + str( player_1_score), True, (0, 0, 0))
+    screen.blit( score1, (x, y))
 
 # Variable that to keep our game loop running
 running = True
@@ -162,6 +177,9 @@ while running:
     # Collitions
     if ball.colliderect(player_1) or ball.colliderect(player_2):
         ball_speed_x *= -1
+        
+    # Call the show_score1 function
+    show_score_1(player_1_score_x, player_1_score_y)
     
     # Update the window
     pygame.display.flip()
