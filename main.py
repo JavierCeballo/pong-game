@@ -1,6 +1,7 @@
 # Import libraries
 import pygame
 import random as rd
+from pygame import mixer
 
 # Initialize pygame
 pygame.init()
@@ -203,6 +204,8 @@ while running:
     # Collitions
     if ball.colliderect(player_1) or ball.colliderect(player_2):
         ball_speed_x *= -1
+        ball_sound = mixer.Sound( "ball-sound.wav" )
+        ball_sound.play()
         
     # Call the show_score1 function
     show_score_1(player_1_score_x, player_1_score_y)
