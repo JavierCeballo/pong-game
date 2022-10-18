@@ -1,5 +1,4 @@
 # Import libraries
-from curses import KEY_DOWN
 import pygame
 import random as rd
 
@@ -65,6 +64,11 @@ player_1_score_y = 10
 player_2_score_x = screen_width - 165
 player_2_score_y = 10
 
+# Game over text
+go_font = pygame.font.Font("quantifier-font.ttf", 64)
+go_x = 200
+go_y = 250
+
 # Player 1 score function
 def show_score_1(x, y):
     score1 = score_font.render("Player one: " + str( player_1_score), True, (0, 0, 0))
@@ -74,7 +78,8 @@ def show_score_1(x, y):
 def show_score_2(x, y):
     score2 = score_font.render("Player two: " + str( player_2_score), True, (0, 0, 0))
     screen.blit( score2, (x, y))
-
+    
+        
 # Variable that to keep our game loop running
 running = True
 
@@ -202,6 +207,23 @@ while running:
     # Call the show_score1 function
     show_score_1(player_1_score_x, player_1_score_y)
     show_score_2(player_2_score_x, player_2_score_y)
+    
+    # Game over
+    if (player_1_score == 5) and (player_1_score > player_2_score):
+        ball_speed_x = 0
+        ball_speed_y = 0
+        ball_y = 2000
+        go_text = go_font.render( "Player One Win", True, ( 0, 0, 0 ) )
+        screen.blit( go_text, ( go_x, go_y ) )
+        
+    elif (player_2_score == 5) and (player_2_score > player_1_score):
+        ball_speed_x = 0
+        ball_speed_y = 0
+        ball_y = 2000
+        go_text = go_font.render( "Player Two Win", True, ( 0, 0, 0 ) )
+        screen.blit( go_text, ( go_x, go_y ) )
+        
+        
     
     # Update the window
     pygame.display.flip()
